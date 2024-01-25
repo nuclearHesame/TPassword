@@ -1,0 +1,167 @@
+﻿<Window x:Class="TPassword.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:TPassword"
+        mc:Ignorable="d"
+        Title="TPassword" 
+        Height="255" Width="420"
+        Background="Transparent"
+        WindowStyle="None">
+
+    <WindowChrome.WindowChrome>
+        <WindowChrome GlassFrameThickness="0" CornerRadius="0" CaptionHeight="0"/>
+    </WindowChrome.WindowChrome>
+
+    <Border Background="Black">
+
+        <Grid>
+            <Grid.RowDefinitions>
+                <RowDefinition Height="auto"/>
+                <RowDefinition/>
+            </Grid.RowDefinitions>
+
+            <!--  title bar  -->
+            <Grid>
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition />
+                    <ColumnDefinition Width="auto"/>
+                </Grid.ColumnDefinitions>
+
+                <!--  Buttons  -->
+                <StackPanel Height="31"
+                            Grid.Column="1"
+                            Orientation="Horizontal">
+
+                    <!--minimize Button-->
+                    <Button x:Name="btn_Minimize"
+                            Click="btn_Minimize_Click">
+                        <Button.Style>
+                            <Style TargetType="Button">
+
+                                <Style.Setters>
+                                    <Setter Property="Background" Value="Transparent"/>
+                                    <Setter Property="Width" Value="45"/>
+                                    <Setter Property="BorderThickness" Value="0"/>
+                                    <Setter Property="Template">
+                                        <Setter.Value>
+                                            <ControlTemplate>
+                                                <Border Background="{TemplateBinding Background}" >
+
+                                                    <Image Source="D:\MyAPP\Project\WPF\Spotify-WpfClone\Spotify-WpfClone\Resources\Images\MainPage\minimize.png"
+                                                   Height="12"/>
+
+                                                </Border>
+                                            </ControlTemplate>
+                                        </Setter.Value>
+                                    </Setter>
+                                </Style.Setters>
+
+                                <Style.Triggers>
+                                    <Trigger Property="IsMouseOver" Value="True">
+                                        <Setter Property="Background" Value="#3f3f3f"/>
+                                    </Trigger>
+                                </Style.Triggers>
+
+                            </Style>
+                        </Button.Style>
+                    </Button>
+
+                    <!--maximize & Restre Down Button-->
+                    <Button x:Name="btn_Maximize"
+                            Click="btn_Maximize_Click">
+                        <Button.Style>
+                            <Style TargetType="Button">
+
+                                <Style.Setters>
+                                    <Setter Property="Background" Value="Transparent"/>
+                                    <Setter Property="Width" Value="45"/>
+                                    <Setter Property="BorderThickness" Value="0"/>
+                                    <Setter Property="Template">
+                                        <Setter.Value>
+                                            <ControlTemplate>
+                                                <Border Background="{TemplateBinding Background}" >
+
+                                                    <Image Source="D:\MyAPP\Project\WPF\Spotify-WpfClone\Spotify-WpfClone\Resources\Images\MainPage\maximize.png"
+                                                   Height="14"/>
+
+                                                </Border>
+                                            </ControlTemplate>
+                                        </Setter.Value>
+                                    </Setter>
+                                </Style.Setters>
+
+                                <Style.Triggers>
+                                    <Trigger Property="IsMouseOver" Value="True">
+                                        <Setter Property="Background" Value="#3f3f3f"/>
+                                    </Trigger>
+                                </Style.Triggers>
+
+                            </Style>
+                        </Button.Style>
+                    </Button>
+
+                    <!--Close Button-->
+                    <Button x:Name="btn_Close"
+                            Click="btn_Close_Click">
+                        <Button.Style>
+                            <Style TargetType="Button">
+                                <Style.Setters>
+                                    <Setter Property="Background" Value="Transparent"/>
+                                    <Setter Property="Width" Value="45"/>
+                                    <Setter Property="BorderThickness" Value="0"/>
+                                    <Setter Property="Template">
+                                        <Setter.Value>
+                                            <ControlTemplate>
+                                                <Border Background="{TemplateBinding Background}" >
+
+                                                    <Image Source="D:\MyAPP\Project\WPF\Spotify-WpfClone\Spotify-WpfClone\Resources\Images\MainPage\close.png"
+                                                   Height="15"/>
+
+                                                </Border>
+                                            </ControlTemplate>
+                                        </Setter.Value>
+                                    </Setter>
+                                </Style.Setters>
+
+                                <Style.Triggers>
+                                    <Trigger Property="IsMouseOver" Value="True">
+                                        <Setter Property="Background" Value="#cd1a2b"/>
+                                    </Trigger>
+                                </Style.Triggers>
+
+                            </Style>
+                        </Button.Style>
+                    </Button>
+
+                </StackPanel>
+
+                <!--  title bar options  -->
+                <Grid Grid.Column="0"
+                      Background="Black"
+                      MouseLeftButtonDown="Grid_PreviewMouseLeftButtonDown">
+                    
+                </Grid>
+                
+            </Grid>
+            
+
+
+            <!--  Info  -->
+            <Grid Grid.Row="1">
+                <Grid.RowDefinitions>
+                    <RowDefinition/>
+                    <RowDefinition/>
+                </Grid.RowDefinitions>
+
+
+
+            </Grid>
+
+        </Grid>
+        
+
+        
+    </Border>
+</Window>
