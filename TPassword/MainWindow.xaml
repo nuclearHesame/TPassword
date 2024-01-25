@@ -141,12 +141,10 @@
                 <Grid Grid.Column="0"
                       Background="Black"
                       MouseLeftButtonDown="Grid_PreviewMouseLeftButtonDown">
-                    
-                </Grid>
-                
-            </Grid>
-            
 
+                </Grid>
+
+            </Grid>
 
             <!--  Info  -->
             <Grid Grid.Row="1">
