@@ -39,20 +39,6 @@ namespace TPassword
             this.Close();
         }
 
-        private void btn_Maximize_Click(object sender, RoutedEventArgs e)
-        {
-            if (MainWindowState == WindowState.Normal)
-            {
-                Application.Current.MainWindow.WindowState = WindowState.Maximized;
-            }
-            else
-            {
-                Application.Current.MainWindow.WindowState = WindowState.Normal;
-            }
-
-            MainWindowState = Application.Current.MainWindow.WindowState;
-        }
-
         private void btn_Minimize_Click(object sender, RoutedEventArgs e)
         {
             Application.Current.MainWindow.WindowState = WindowState.Minimized;

@@ -8,11 +8,16 @@
         Title="TPassword" 
         Height="255" Width="420"
         Background="Transparent"
-        WindowStyle="None">
+        WindowStyle="None"
+        ResizeMode="NoResize">
 
     <WindowChrome.WindowChrome>
         <WindowChrome GlassFrameThickness="0" CornerRadius="0" CaptionHeight="0"/>
     </WindowChrome.WindowChrome>
+
+    <Window.Resources>
+        <FontFamily x:Key="Proxima-Black" >D:\MyAPP\Project\WPF\TPassword\TPassword\Resources\Fonts\ProximaSoft-Black.ttf#Proxima Soft Black</FontFamily>
+    </Window.Resources>
 
     <Border Background="Black">
 
@@ -51,40 +56,6 @@
 
                                                     <Image Source="D:\MyAPP\Project\WPF\Spotify-WpfClone\Spotify-WpfClone\Resources\Images\MainPage\minimize.png"
                                                    Height="12"/>
-
-                                                </Border>
-                                            </ControlTemplate>
-                                        </Setter.Value>
-                                    </Setter>
-                                </Style.Setters>
-
-                                <Style.Triggers>
-                                    <Trigger Property="IsMouseOver" Value="True">
-                                        <Setter Property="Background" Value="#3f3f3f"/>
-                                    </Trigger>
-                                </Style.Triggers>
-
-                            </Style>
-                        </Button.Style>
-                    </Button>
-
-                    <!--maximize & Restre Down Button-->
-                    <Button x:Name="btn_Maximize"
-                            Click="btn_Maximize_Click">
-                        <Button.Style>
-                            <Style TargetType="Button">
-
-                                <Style.Setters>
-                                    <Setter Property="Background" Value="Transparent"/>
-                                    <Setter Property="Width" Value="45"/>
-                                    <Setter Property="BorderThickness" Value="0"/>
-                                    <Setter Property="Template">
-                                        <Setter.Value>
-                                            <ControlTemplate>
-                                                <Border Background="{TemplateBinding Background}" >
-
-                                                    <Image Source="D:\MyAPP\Project\WPF\Spotify-WpfClone\Spotify-WpfClone\Resources\Images\MainPage\maximize.png"
-                                                   Height="14"/>
 
                                                 </Border>
                                             </ControlTemplate>
@@ -151,15 +122,218 @@
                 <Grid.RowDefinitions>
                     <RowDefinition/>
                     <RowDefinition/>
+                    <RowDefinition/>
                 </Grid.RowDefinitions>
 
+                <!--  Username  -->
+                <TextBox Margin="20 15 20 20 " 
+                         FontSize="20"
+                         FontFamily="{StaticResource Proxima-Black}">
+                    <TextBox.Style>
+                        <Style TargetType="{x:Type TextBox}">
+                            <Setter Property="BorderThickness" Value="1"/>
+                            <Setter Property="BorderBrush" Value="Transparent"/>
+                            <Setter Property="Template">
+                                <Setter.Value>
+                                    <ControlTemplate TargetType="{x:Type TextBox}">
 
+                                        <Border CornerRadius="10"
+                                            Background="#353340"
+                                                BorderThickness="{TemplateBinding BorderThickness}"
+                                                BorderBrush="{TemplateBinding BorderBrush}">
 
+                                            <Grid>
+                                                <Rectangle StrokeThickness="1"/>
+                                                <TextBox Margin="10 1 1 1"
+                                                        Text="{TemplateBinding Text}"
+                                                        BorderThickness="0"
+                                                      Background="Transparent"
+                                                      Foreground="#CFCFCF"
+                                                      VerticalContentAlignment="Center"
+                                                      Padding="5"
+                                                      x:Name="SearchBox"/>
+
+                                                <TextBlock IsHitTestVisible="False"
+                                                        Text="Username"
+                                                        VerticalAlignment="Center"
+                                                        HorizontalAlignment="Left"
+                                                        Margin="15 0 0 0"
+                                                        FontSize="20"
+                                                        Foreground="DarkGray"
+                                                        Grid.Column="1">
+
+                                                    <TextBlock.Style>
+                                                        <Style TargetType="{x:Type TextBlock}">
+                                                            <Style.Triggers>
+                                                                <DataTrigger Binding="{Binding Text,ElementName=SearchBox}" Value="">
+                                                                    <Setter Property="Visibility" Value="Visible"/>
+                                                                </DataTrigger>
+                                                            </Style.Triggers>
+                                                            <Setter Property="Visibility" Value="Hidden"/>
+                                                        </Style>
+                                                    </TextBlock.Style>
+                                                </TextBlock>
+                                            </Grid>
+
+                                        </Border>
+
+                                        <ControlTemplate.Triggers>
+                                            <Trigger Property="IsMouseDirectlyOver" Value="True">
+                                                <Trigger.Setters>
+                                                    <Setter Property="BorderBrush" Value="#CFCFCF"/>
+                                                </Trigger.Setters>
+                                            </Trigger>
+                                        </ControlTemplate.Triggers>
+                                    </ControlTemplate>  
+                                </Setter.Value>
+                            </Setter>
+
+                        </Style>
+                    </TextBox.Style>
+                </TextBox>
+
+                <!--  Password  -->
+                <PasswordBox Margin="20 15 20 20" 
+                         Grid.Row="1"
+                         FontSize="20"
+                             FontFamily="{StaticResource Proxima-Black}">
+                    <PasswordBox.Style>
+                        <Style TargetType="{x:Type PasswordBox}">
+
+                            <Setter Property="Template">
+                                <Setter.Value>
+                                    <ControlTemplate TargetType="{x:Type PasswordBox}">
+
+                                        <Border CornerRadius="10"
+                                                Background="#353340">
+
+                                            <Grid>
+                                                <Rectangle StrokeThickness="1"/>
+                                                <PasswordBox Margin="8 1 1 1"
+                                                             BorderThickness="0"
+                                                             Background="Transparent"
+                                                             Foreground="#CFCFCF"
+                                                             VerticalContentAlignment="Center"
+                                                             Padding="5"
+                                                             x:Name="PasswordBox"/>
+
+                                                <TextBlock IsHitTestVisible="False"
+                                                           Text="Password"
+                                                           VerticalAlignment="Center"
+                                                           HorizontalAlignment="Left"
+                                                           Margin="15 0 0 0"
+                                                           FontSize="20"
+                                                           Foreground="DarkGray"
+                                                           Grid.Column="1">
+
+                                                    <TextBlock.Style>
+                                                        <Style TargetType="{x:Type TextBlock}">
+                                                            <Style.Triggers>
+                                                                <DataTrigger Binding="{Binding Password,ElementName=PasswordBox}" Value="">
+                                                                    <Setter Property="Visibility" Value="Visible"/>
+                                                                </DataTrigger>
+                                                            </Style.Triggers>
+                                                            <Setter Property="Visibility" Value="Hidden"/>
+                                                        </Style>
+                                                    </TextBlock.Style>
+                                                </TextBlock>
+                                            </Grid>
+
+                                        </Border>
+
+                                    </ControlTemplate>
+                                </Setter.Value>
+                            </Setter>
+
+                        </Style>
+                    </PasswordBox.Style>
+                </PasswordBox>
+
+                <!--  Singup & Login  -->
+                <Grid Grid.Row="2">
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition/>
+                        <ColumnDefinition/>
+                    </Grid.ColumnDefinitions>
+                
+                    <!--  Login  -->
+                    <Button x:Name="btn_Login"
+                            Content="Login"
+                            FontSize="20"
+                            FontFamily="{StaticResource Proxima-Black}">
+                        <Button.Style>
+                            <Style TargetType="Button">
+                                <Style.Setters>
+                                    <Setter Property="Background" Value="#353340"/>
+                                    <Setter Property="Foreground" Value="White"/>
+                                    <Setter Property="Template">
+                                        <Setter.Value>
+                                            <ControlTemplate TargetType="Button">
+                                                <Border Background="{TemplateBinding Background}"
+                                                        Width="100"
+                                                        Height="50"
+                                                        CornerRadius="10">
+                                                    <ContentPresenter HorizontalAlignment="Center" VerticalAlignment="Center"/>
+                                                </Border>
+
+                                                <ControlTemplate.Triggers>
+                                                    <Trigger Property="IsMouseOver" Value="True">
+                                                        <Trigger.Setters>
+                                                            <Setter Property="Background" Value="#22202f"/>
+                                                        </Trigger.Setters>
+                                                    </Trigger>
+                                                </ControlTemplate.Triggers>
+                                            </ControlTemplate>
+                                        </Setter.Value>
+                                    </Setter>
+                                </Style.Setters>
+                            </Style>
+                        </Button.Style>   
+                        
+                    </Button>
+
+                    <!--  Singup  -->
+                    <Button x:Name="btn_Singup"
+                            Content="Singup"
+                            FontSize="20"
+                            FontFamily="{StaticResource Proxima-Black}"
+                            Grid.Column="1">
+                        <Button.Style>
+                            <Style TargetType="Button">
+                                <Style.Setters>
+                                    <Setter Property="Background" Value="#353340"/>
+                                    <Setter Property="Foreground" Value="White"/>
+                                    <Setter Property="Template">
+                                        <Setter.Value>
+                                            <ControlTemplate TargetType="Button">
+                                                <Border Background="{TemplateBinding Background}"
+                                                        Width="100"
+                                                        Height="50"
+                                                        CornerRadius="10">
+                                                    <ContentPresenter HorizontalAlignment="Center" VerticalAlignment="Center"/>
+                                                </Border>
+
+                                                <ControlTemplate.Triggers>
+                                                    <Trigger Property="IsMouseOver" Value="True">
+                                                        <Trigger.Setters>
+                                                            <Setter Property="Background" Value="#22202f"/>
+                                                        </Trigger.Setters>
+                                                    </Trigger>
+                                                </ControlTemplate.Triggers>
+                                            </ControlTemplate>
+                                        </Setter.Value>
+                                    </Setter>
+                                </Style.Setters>
+                            </Style>
+                        </Button.Style>
+
+                    </Button>
+
+                </Grid>
+        
             </Grid>
 
         </Grid>
-        
 
-        
     </Border>
 </Window>
